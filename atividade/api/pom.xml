@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.exibicaodonome</groupId>
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Exibicao do Nome</name>
-	<description>API Backend do Sistema de Exibição do Nome</description>
+	<description>API Backend do sistema de Exibição do Nome</description>
 	<url/>
 	<licenses>
 		<license/>
