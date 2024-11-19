@@ -24,8 +24,8 @@ public class AlunoController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Aluno> ListarTodosAlunos() {
-        return alunoService.ListarTodosAlunos();
+    public List<Aluno> listarTodosAlunos() {
+        return alunoService.listarTodosAlunos();
     }
 
     @GetMapping("/{id}")

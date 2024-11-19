@@ -20,7 +20,7 @@ public class ProfessorService {
         professorRepository.save(professor);
     }
 
-    public List<Professor> ListarTodosProfessores(){
+    public List<Professor> listarTodosProfessores(){
         return professorRepository.findAll();
     }
 
@@ -33,7 +33,7 @@ public class ProfessorService {
     }
 
     public void atualizarProfessorPorId(Long id, Professor professor) {
-        // PRIMEIRO PASSO: VER SE O ALUNO EXISTE NO BD
+        // PRIMEIRO PASSO: VER SE O PROFESSOR EXISTE NO BD
         Optional<Professor> professorBancoDeDados = buscarProfessorPorId(id);
 
         // E SE NÃO EXISTIR???
@@ -41,17 +41,17 @@ public class ProfessorService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Professor não encontrado no banco de dados");
         }
 
-        // SE CHEGAR AQUI, SIGNIFICA QUE EXISTE ALUNO! ENTÃO
+        // SE CHEGAR AQUI, SIGNIFICA QUE EXISTE PROFESSOR! ENTÃO
         // VOU ARMAZENA-LO EM UMA VARIAVEL
         Professor professorEditado = professorBancoDeDados.get();
 
-        // COM ESSE ALUNO EDITADO DE CIMA, FAÇO
+        // COM ESSE PROFESSOR EDITADO DE CIMA, FAÇO
         // OS SETS NECESSARIOS PARA ATUALIZAR OS ATRIBUTOS DELE
         professorEditado.setNome(professor.getNome());
         professorEditado.setCPF(professor.getCPF());
         professorEditado.setEmail(professor.getEmail());
 
-        // COM O ALUNO TOTALMENTE EDITADO ACIMA
+        // COM O PROFESSOR TOTALMENTE EDITADO ACIMA
         // EU DEVOLVO ELE EDITADO/ATUALIZADO PARA O BANCO DE DADOS
         professorRepository.save(professorEditado);
     }

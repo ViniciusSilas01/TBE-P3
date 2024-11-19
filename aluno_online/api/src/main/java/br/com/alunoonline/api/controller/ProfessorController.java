@@ -25,7 +25,7 @@ public class ProfessorController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Professor> listarTodosProfessores(){
-        return professorService.ListarTodosProfessores();
+        return professorService.listarTodosProfessores();
     }
 
     @GetMapping("/{id}")
