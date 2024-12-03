@@ -4,7 +4,7 @@ Repositório destinado a cadeira de Tecnologias para Back-End - P3.
 # Projeto Aluno Online
 
 # Descrição Geral:
-O projeto "Aluno Online" foi desenvolvido durante a disciplina de Tecnologias para Back-End, sendo uma API RESTful construída com o ecossistema Spring. Seu objetivo principal é gerenciar o cadastro de alunos, professores, disciplinas e matrículas, utilizando a arquitetura MVC (Model-View-Controller). 
+O projeto "Aluno Online" foi desenvolvido durante a disciplina de Tecnologias para Back-End, sendo uma API RESTful construída com o ecossistema Spring. Seu objetivo principal é gerenciar o cadastro de alunos, professores, disciplinas e matrículas. 
 
 # Estrutura do Projeto
 
