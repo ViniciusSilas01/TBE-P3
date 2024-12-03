@@ -1,6 +1,7 @@
 package br.com.alunoonline.api.service;
 
 import br.com.alunoonline.api.dtos.AtualizarNotasRequest;
+import br.com.alunoonline.api.dtos.DisciplinaAlunoResponse;
 import br.com.alunoonline.api.dtos.HistoricoAlunoResponse;
 import br.com.alunoonline.api.enums.MatriculaAlunoStatusEnum;
 import br.com.alunoonline.api.model.MatriculaAluno;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,6 +29,10 @@ public class MatriculaAlunoService {
         matriculaAluno.setStatus(MatriculaAlunoStatusEnum.MATRICULADO);
         matriculaAlunoRepository.save(matriculaAluno);
     }
+
+    /*
+    É aqui que o aluno vai trancar sua matrícula em alguma disciplina
+     */
 
     public void trancarMatricula(Long matriculaAlunoId) {
         MatriculaAluno matriculaAluno =
@@ -88,7 +94,35 @@ public class MatriculaAlunoService {
                     "Esse aluno não possui matricula");
         }
 
-        return null;
+        HistoricoAlunoResponse historicoAluno = new HistoricoAlunoResponse();
+        historicoAluno.setNomeAluno(matriculasDoAluno.get(0).getAluno().getNome());
+        historicoAluno.setCpfAluno(matriculasDoAluno.get(0).getAluno().getCPF());
+        historicoAluno.setEmailAluno(matriculasDoAluno.get(0).getAluno().getEmail());
+
+        List<DisciplinaAlunoResponse> disciplinasList = new ArrayList<>();
+
+        for (MatriculaAluno matriculaAluno : matriculasDoAluno) {
+            DisciplinaAlunoResponse disciplinaAlunoResponse = new DisciplinaAlunoResponse();
+            disciplinaAlunoResponse.setNomeDisciplina(matriculaAluno.getDisciplina().getNome());
+            disciplinaAlunoResponse.setNomeProfessor(matriculaAluno.getDisciplina().getProfessor().getNome());
+            disciplinaAlunoResponse.setNota1(matriculaAluno.getNota1());
+            disciplinaAlunoResponse.setNota2(matriculaAluno.getNota2());
+
+            // não quero isso nesse método, mas eu (prof) vou fazer
+
+            if (matriculaAluno.getNota1() != null && matriculaAluno.getNota2() != null) {
+                disciplinaAlunoResponse.setMedia((matriculaAluno.getNota1() + matriculaAluno.getNota2()) / 2.0);
+
+            } else {
+                disciplinaAlunoResponse.setMedia(null);
+            }
+
+            disciplinaAlunoResponse.setStatus(matriculaAluno.getStatus());
+
+            disciplinasList.add(disciplinaAlunoResponse);
+        }
+
+        historicoAluno.setDisciplinaAlunoResponses(disciplinasList);
+        return historicoAluno;
     }
 }
-

@@ -51,5 +51,4 @@ public class DisciplinaController {
     public List<Disciplina> listarDisciplinasDoProf(@PathVariable Long professorId) {
         return disciplinaService.listarDisciplinasDoProf(professorId);
     }
-
 }
