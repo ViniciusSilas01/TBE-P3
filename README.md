@@ -1,12 +1,12 @@
-# TBE-P3
+## TBE-P3
 **Repositório destinado a cadeira de Tecnologia para Back-End - P3.**
 
-# Projeto Aluno Online
+## Projeto Aluno Online
 
-# Descrição Geral:
+## Descrição Geral:
 O projeto "Aluno Online" foi desenvolvido durante a disciplina de Tecnologias para Back-End, sendo uma API RESTful construída com o ecossistema Spring. Seu objetivo principal é gerenciar o cadastro de alunos, professores, disciplinas e matrículas. 
 
-# Estrutura do Projeto
+## Estrutura do Projeto
 
 . Model - Define os atributos das classes que representam as entidades do sistema. 
 
@@ -22,7 +22,7 @@ O projeto "Aluno Online" foi desenvolvido durante a disciplina de Tecnologias pa
 
 . Config - Inclui configurações específicas para a integração do Swagger e outros aspectos relevantes.
 
-# Tecnologias do Projeto
+## Tecnologias do Projeto
 
 . Java 17 - Linguagem. 
 
@@ -34,7 +34,7 @@ O projeto "Aluno Online" foi desenvolvido durante a disciplina de Tecnologias pa
 
 . DBeaver - Gerenciador do Banco.
 
-# Módulos do projeto
+## Módulos do projeto
 
 . Spring Boot - Framework base para a criação da API.
 
